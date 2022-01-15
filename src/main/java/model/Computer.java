@@ -45,6 +45,14 @@ public class Computer extends Player {
 		return sum;
 	}
 
+	@Override
+	protected Boolean reversiNext(Grid aGrid, Integer index) {
+		Integer color = aGrid.getPiece().getColor();
+		if (color > 0 && color != piece.getColor())
+			return true;
+		return false;
+	}
+
 	private void reversi(Grid aGrid) {
 		List<Grid> nextGrids = aGrid.getNextGrids();
 		nextGrids.stream().filter(item -> super.reversiNext(item, nextGrids.indexOf(item)))
@@ -61,6 +69,7 @@ public class Computer extends Player {
 		return reversiColumnNumber(aGrid.getNextGrid(index), index, number + 1);
 	}
 
+	@Override
 	public Boolean isComputer() {
 		return true;
 	}

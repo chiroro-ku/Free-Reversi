@@ -59,9 +59,11 @@ public class Login extends HttpServlet {
 
 		// ログイン成功時の処理
 		if (isLogin) {
+
 			// ユーザー情報をセッションスコープに保存
 			HttpSession session = request.getSession();
 			session.setAttribute("loginPlayer", player);
+
 		}
 
 		// ログイン結果画面フォワード
